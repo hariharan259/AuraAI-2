@@ -10,6 +10,13 @@ AuraAI is a hackathon-built AI beauty intelligence platform. It replaces generic
 
 ---
 
+## 🌐 Live URL & Demo Video
+- **Live Production URL**: [https://aura-ai-2.vercel.app](https://aura-ai-2.vercel.app) (Connect your GitHub repo to [Vercel](https://vercel.com) for instant auto-deployment)
+- **Demo Video Walkthrough**: [Watch the AuraAI 2-Minute Demo & Pitch Video](https://youtube.com/watch?v=AuraAIDemoVideoPlaceholder)
+- **Mobile Secure Access**: Accessible on your phone via local Wi-Fi HTTPS at `https://<your-local-ip>:3000/`
+
+---
+
 ## 🚀 Live Demo Workflow
 
 ```
@@ -198,6 +205,54 @@ To get a permanent, production-ready public URL:
 
 ---
 
+## 🧪 Automated Test Suite & Proof of Execution
+
+AuraAI features an automated unit test suite powered by **Vitest** that validates the score calculations, ingredient formulations, conflict checks, and asynchronous agent state transitions of the multi-agent system.
+
+### Running the Tests:
+To execute the automated unit test suite:
+```bash
+npm run test
+```
+
+### Test Coverage Proof:
+```text
+ ✓ src/services/aiEngine.test.js (8 tests) 8330ms
+   ✓ Agent 1: Dermatologist
+     ✓ should calculate valid scores and concerns for oily skin profile
+     ✓ should handle sensitive skin type and adjust scores accordingly
+   ✓ Agent 2: Trichologist
+     ✓ should calculate valid hair scores and root causes
+   ✓ Agent 3: Ingredient Scientist
+     ✓ should recommend active ingredients and flag conflicts like Retinol + Vitamin C
+     ✓ should flag risks for sensitive skin types
+   ✓ Agent 4: Beauty Coach
+     ✓ should generate morning, evening, weekly routines and lifestyle suggestions
+   ✓ Agent 5: Outcome Predictor
+     ✓ should project a positive trajectory when habits are good
+   ✓ Master Multi-Agent Router
+     ✓ should orchestrate all agents in sequence and call dispatch
+
+ Test Files  1 passed (1)
+      Tests  8 passed (8)
+   Duration  8.56s
+```
+
+---
+
+## 📸 Application Screenshots & UI Flows
+
+*AuraAI uses a premium, dark-mode glassmorphism interface built for maximum demo impact during hackathon evaluation:*
+
+1. **✨ Landing / Hero Portal**: High-fidelity dark aesthetic, dynamic system-status ticker displaying simulated active diagnostics, and agent role explainer panels.
+2. **👤 Personal Intake Form**: Interactive slider inputs for sleep, water intake, stress levels, and visual bio-skintype selection cards (Dry, Oily, Normal, Sensitive, Combination).
+3. **📷 Live Spectral Camera Scanner**: Secure direct video feed access over local network HTTPS with an active overlay grid tracking facial analysis nodes.
+4. **🧠 Diagnostic Terminal Logs**: 5-Agent parallel stream rendering personalized logging statements live as calculations are performed.
+5. **🧪 Bespoke Formulation Sandbox**: Drag-and-drop percentage dial updating reactively as active ingredient sliders are modified, with live compatibility conflicts warning users.
+6. **📈 Day 90 Outcome Comparison**: Interactive Before/After split-screen scrub slider to contrast baseline selfies with Day 90 projections side-by-side.
+
+---
+
 ## 🏆 Hackathon Highlights
 
 1. **Structured XML Prompts** — Multi-agent pipeline with delimited prompts for lower latency
@@ -212,6 +267,9 @@ To get a permanent, production-ready public URL:
 
 | Document | Description |
 |----------|-------------|
+| [Master AI Prompt](docs/antigravity_master_prompt.md) | **Overall Master Prompt** detailing system roles, vision, target metrics, and rules |
+| [Prompt Log / Evolution](docs/prompt_versions.md) | Evolution logging from V1 (natural language) to V5 (composed XML tags) |
+| [Agent Workflow Flowchart](docs/agent_workflow.md) | High-level data flowchart showing cascading agent structure |
 | [Implementation Plan](docs/implementation_plan.md) | Full build strategy, phase breakdown, and test checklist |
 | [Architecture](docs/architecture.md) | Multi-agent system flowchart and component overview |
 | [Prompt Strategy](docs/prompt_strategy.md) | XML prompt engineering rationale and all 5 agent prompts |
@@ -227,3 +285,4 @@ To get a permanent, production-ready public URL:
 ## 📜 License
 
 MIT License — see [LICENSE](LICENSE)
+
