@@ -147,7 +147,19 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) and start your AI beauty analysis.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+**📱 Access from your phone or tablet on the same Wi-Fi:**
+When you run `npm run dev`, Vite will also print a **Network** address, e.g.:
+
+```
+➜  Local:   http://localhost:3000/
+➜  Network: http://192.168.x.x:3000/
+```
+
+Type that **Network URL** into your phone browser (both devices must be on the same Wi-Fi network).
+
+> **Note:** The `host: true` flag is already set in `vite.config.js` so the server is automatically exposed on your local network — no extra configuration needed.
 
 ---
 
@@ -158,6 +170,22 @@ Open [http://localhost:3000](http://localhost:3000) and start your AI beauty ana
 3. **Formulation Sandbox** — Real-time safety score engine with ingredient conflict detection
 4. **Personalized Scanner Logs** — Dynamic terminal output injecting user profile data live
 5. **Interactive Scan History** — Browse and restore historical analysis reports
+
+---
+
+## 📚 Documentation
+
+| Document | Description |
+|----------|-------------|
+| [Implementation Plan](docs/implementation_plan.md) | Full build strategy, phase breakdown, and test checklist |
+| [Architecture](docs/architecture.md) | Multi-agent system flowchart and component overview |
+| [Prompt Strategy](docs/prompt_strategy.md) | XML prompt engineering rationale and all 5 agent prompts |
+| [Prompt Examples](docs/prompt_examples.md) | Concrete input/output examples per agent |
+| [Workflow](docs/workflow.md) | Stage-by-stage execution pipeline breakdown |
+| [System Design](docs/system_design.md) | Data schemas, CSS design tokens, state management |
+| [Why AI?](docs/why_ai.md) | Rationale for multi-agent AI over rule-based systems |
+| [Pitch Story](docs/pitch_story.md) | 2-minute demo pitch narrative |
+| [Judge Q&A](docs/judge_Questions.md) | Pre-prepared answers to hackathon judge questions |
 
 ---
 
