@@ -138,7 +138,10 @@ AuraAI/
 
 ---
 
-## ⚡ Quick Start
+## ⚡ Quick Start & Remote Access
+
+### 1. Run Locally (with HTTPS)
+To support camera access and secure APIs on mobile devices, Vite is configured with a self-signed HTTPS certificate using `@vitejs/plugin-basic-ssl`.
 
 ```bash
 git clone https://github.com/hariharan259/AuraAI-2.git
@@ -147,19 +150,51 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [https://localhost:3000](https://localhost:3000) in your browser.
 
-**📱 Access from your phone or tablet on the same Wi-Fi:**
-When you run `npm run dev`, Vite will also print a **Network** address, e.g.:
+> ⚠️ **Note on SSL Certificate Warning:** Since the SSL certificate is self-signed for local development, your browser will display a warning (e.g., *"Your connection is not private"* or *"Warning: Potential Security Risk Ahead"*). Simply click **Advanced** and choose **Proceed** / **Accept the Risk and Continue**.
 
+---
+
+### 2. Accessing from Another PC or Phone (Same Wi-Fi Network)
+Both devices must be connected to the **same Wi-Fi / local network**.
+
+When you run `npm run dev`, Vite prints the secure network addresses:
+```text
+➜  Local:   https://localhost:3000/
+➜  Network: https://192.168.x.x:3000/
 ```
-➜  Local:   http://localhost:3000/
-➜  Network: http://192.168.x.x:3000/
+
+1. **On your phone or other PC**: Type the exact **Network URL** (e.g., `https://192.168.x.x:3000`) shown in your terminal into the browser.
+2. **Accept the SSL Warning**: Just like on your local PC, accept the SSL certificate warning in your phone's browser to proceed.
+3. **Why HTTPS is Required**: Mobile browsers (iOS Safari, Android Chrome) block camera access (`getUserMedia`) on unencrypted HTTP connections. Serving the dev environment over **HTTPS** ensures the webcam scan functionality works perfectly on your phone.
+
+#### 🛠️ Troubleshooting Connection Issues on Other PCs/Phones:
+If the site does not load on the other PC or phone:
+- **Check the URL Scheme**: Ensure you typed `https://` and not `http://`.
+- **Firewall Restrictions**: The host PC's firewall might be blocking incoming traffic on port `3000`.
+  - **On macOS**: Go to *System Settings > Network > Firewall* and ensure incoming connections are allowed, or temporarily turn it off to test.
+  - **On Windows**: Ensure the Node.js/Vite process has public/private network permissions in the Windows Defender Firewall.
+- **Router Security**: Some Wi-Fi routers have "AP Isolation" or "Client Isolation" enabled, which blocks devices on the same Wi-Fi from talking to each other. If this is the case, use a public tunnel (below).
+
+---
+
+### 3. Accessing from Any PC Anywhere (Public Tunnels & Hosting)
+If you want to share the app with judges or users who are **not on your local network**, use one of these methods:
+
+#### Option A: Quick Public Tunnel (Localtunnel)
+Expose your local development server to the internet without installing anything permanently:
+```bash
+npx localtunnel --port 3000
 ```
+This generates a public URL like `https://xxxx.loca.lt` which can be opened on any device globally.
 
-Type that **Network URL** into your phone browser (both devices must be on the same Wi-Fi network).
+#### Option B: Deploy to Vercel (Free & Instant)
+To get a permanent, production-ready public URL:
+1. Install the Vercel CLI: `npm i -g vercel`
+2. Run `vercel` in the project root folder.
+3. Follow the quick prompts to deploy. You will get a live `https://aura-ai.vercel.app` URL.
 
-> **Note:** The `host: true` flag is already set in `vite.config.js` so the server is automatically exposed on your local network — no extra configuration needed.
 
 ---
 
