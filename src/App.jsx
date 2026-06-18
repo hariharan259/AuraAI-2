@@ -14,7 +14,7 @@ import SkinJournal from './pages/SkinJournal'
 export default function App() {
   return (
     <AuraProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           {/* Public landing page — no shell */}
           <Route path="/" element={<Landing />} />

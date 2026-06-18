@@ -11,9 +11,10 @@ AuraAI is a hackathon-built AI beauty intelligence platform. It replaces generic
 ---
 
 ## 🌐 Live URL & Demo Video
-- **Live Production URL**: [https://aura-ai-2.vercel.app](https://aura-ai-2.vercel.app) (Connect your GitHub repo to [Vercel](https://vercel.com) for instant auto-deployment)
-- **Demo Video Walkthrough**: [Watch the AuraAI 2-Minute Demo & Pitch Video](https://youtube.com/watch?v=AuraAIDemoVideoPlaceholder)
-- **Mobile Secure Access**: Accessible on your phone via local Wi-Fi HTTPS at `https://<your-local-ip>:3000/`
+- **Live Production URL (GitHub Pages)**: [https://hariharan259.github.io/AuraAI-2/](https://hariharan259.github.io/AuraAI-2/) *(Automatically built and deployed on push via GitHub Actions)*
+- **Live Production URL (Vercel Alternative)**: [https://aura-ai-2.vercel.app](https://aura-ai-2.vercel.app) *(Set up Vercel client-side routing rewrites using the provided `vercel.json` file)*
+- **Demo Video Walkthrough**: [Watch the AuraAI 2-Minute Pitch & Demo Video](https://youtube.com/watch?v=AuraAIDemoVideoPlaceholder) *(Note: Replace this placeholder link in `README.md` with your actual YouTube or Loom video link once uploaded)*
+- **Mobile Secure Access**: Expose local Wi-Fi HTTPS at `https://<your-local-ip>:3000/`
 
 ---
 
