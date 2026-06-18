@@ -1,5 +1,6 @@
 {
   "name": "aura-ai",
+  "description": "AuraAI — Your Personal AI Beauty Intelligence System. Analyze skin and hair health, formulate active compounds, simulate lifestyle choices, and track your beauty journey with 5 collaborating AI agents.",
   "private": true,
   "version": "1.0.0",
   "type": "module",

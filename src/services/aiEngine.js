@@ -329,7 +329,7 @@ export function runBeautyCoach(skinResult, hairResult, ingredientResult, profile
   const lifestyleImprovements = []
   if (profile.sleepHours < 7) lifestyleImprovements.push({ icon: '😴', title: 'Sleep Optimization', detail: `Increase sleep from ${profile.sleepHours}h to 8h. Beauty regeneration peaks during 10PM–2AM.` })
   if (profile.waterIntake < 8) lifestyleImprovements.push({ icon: '💧', title: 'Hydration Protocol', detail: `Aim for 8–10 glasses/day. Current: ${profile.waterIntake} glasses. Add electrolyte-rich foods.` })
-  if (profile.stressLevel > 6) lifestyleImprovements.push({ icon: '🧘', title: 'Stress Management', detail: 'High stress (Level ${profile.stressLevel}/10) is accelerating skin & hair damage. Try 10-min daily meditation.' })
+  if (profile.stressLevel > 6) lifestyleImprovements.push({ icon: '🧘', title: 'Stress Management', detail: `High stress (Level ${profile.stressLevel}/10) is accelerating skin & hair damage. Try 10-min daily meditation.` })
   if (profile.dietQuality < 6) lifestyleImprovements.push({ icon: '🥗', title: 'Nutritional Upgrade', detail: 'Add antioxidant-rich foods: berries, leafy greens, nuts. Reduce processed sugar intake.' })
   if (profile.exerciseFreq < 3) lifestyleImprovements.push({ icon: '🏃', title: 'Exercise Routine', detail: 'Aim for 3-4 workouts per week. Exercise improves blood circulation to skin and hair follicles.' })
 
