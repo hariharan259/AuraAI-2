@@ -147,7 +147,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173) and start your AI beauty analysis.
+Open [http://localhost:3000](http://localhost:3000) and start your AI beauty analysis.
 
 ---
 
