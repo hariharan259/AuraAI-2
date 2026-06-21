@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Outlet, NavLink, useNavigate } from 'react-router-dom'
 import { useAura } from '../../context/AuraContext'
+import VoiceCopilot from '../ui/VoiceCopilot'
 import {
   LayoutDashboard, FileText, Sliders, TrendingUp, Activity,
   Sparkles, Menu, X, ChevronRight, User, LogOut,
@@ -35,7 +36,8 @@ const NAV_ITEMS = [
   { path: '/challenges', icon: Trophy, label: 'Beauty Challenges', section: 'AuraOS' },
   { path: '/how-it-thinks', icon: Brain, label: 'How AuraAI Thinks', section: 'AuraOS' },
   { path: '/demo', icon: Play, label: 'Demo Console', section: 'AuraOS' },
-  { path: '/consultation', icon: Stethoscope, label: 'Specialist Consult', section: 'AuraOS' }
+  { path: '/consultation', icon: Stethoscope, label: 'Specialist Consult', section: 'AuraOS' },
+  { path: '/admin', icon: Gauge, label: 'Admin & Revenue', section: 'AuraOS' }
 ]
 
 
@@ -405,6 +407,7 @@ export default function AppShell() {
           </NavLink>
         ))}
       </div>
+      <VoiceCopilot />
     </div>
   )
 }
