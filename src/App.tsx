@@ -27,6 +27,7 @@ import RoutinePlanner from './pages/RoutinePlanner'
 import BeautyRisk from './pages/BeautyRisk'
 import ProgressTimeline from './pages/ProgressTimeline'
 import AIWorkflowVisualizer from './pages/AIWorkflowVisualizer'
+import DermatologistConsult from './pages/DermatologistConsult'
 
 // Aura OS v4.0 Pages
 import ExecutiveDashboard from './pages/ExecutiveDashboard'
@@ -73,6 +74,7 @@ export default function App() {
             <Route path="/risk-intelligence" element={<BeautyRisk />} />
             <Route path="/timeline" element={<ProgressTimeline />} />
             <Route path="/how-it-thinks" element={<AIWorkflowVisualizer />} />
+            <Route path="/consultation" element={<DermatologistConsult />} />
 
             {/* Aura OS v4.0 Routes */}
             <Route path="/dashboard" element={<ExecutiveDashboard />} />
