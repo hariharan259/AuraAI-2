@@ -10,7 +10,7 @@
 # ✨ AuraAI — Beauty Intelligence Operating System
 
 **The world's most advanced AI-powered personal beauty platform.**  
-5 parallel AI agents. 28 feature pages. 90-day transformation tracking. Medical-grade precision.
+5 parallel AI agents. 29 feature pages. 90-day transformation tracking. Medical-grade precision.
 
 [🚀 Live Demo](https://hariharan259.github.io/AuraAI-2/) · [🌐 Vercel](https://aura-ai-2.vercel.app) · [📖 Docs](#-documentation) · [⚡ Quick Start](#-quick-start)
 
@@ -24,7 +24,7 @@ AuraAI is a **production-grade AI Beauty Intelligence Operating System** — not
 
 > *"AuraAI replaces generic skincare with data-driven, clinically structured intelligence — from a selfie and a 60-second profile."*
 
-**v4.1 is a complete enterprise-grade upgrade** featuring 28 pages, full TypeScript migration, 90-day transformation monitoring, biological age analysis, AI digital twin simulation, a voice assistant with speech input/output, and a premium glassmorphism UI.
+**v4.1 is a complete enterprise-grade upgrade** featuring 29 pages, full TypeScript migration, 90-day transformation monitoring, biological age analysis, AI digital twin simulation, a voice assistant with speech input/output, a specialist consultation hub, and a premium glassmorphism UI.
 
 ---
 
@@ -63,7 +63,7 @@ AuraAI runs **5 specialized AI agents** concurrently, each with structured XML s
 
 ---
 
-## ✨ Feature Suite (28 Pages)
+## ✨ Feature Suite (29 Pages)
 
 ### 🔬 Core Diagnostics
 | Feature | Description |
@@ -114,6 +114,7 @@ AuraAI runs **5 specialized AI agents** concurrently, each with structured XML s
 | **Skin Journal** | Personal beauty diary with mood and photo logs |
 | **AI Beauty Coach** | Voice-activated conversational AI assistant with Speech-to-Text (dictation) and Text-to-Speech (audio output) |
 | **Demo Console** | Hackathon presenter mode with auto-play walkthrough |
+| **Specialist Consultation** | Connect diagnostics to certified practitioners with booking engine, chat simulator, and secure telehealth video visit simulator |
 
 ---
 
@@ -183,7 +184,7 @@ The XML delimiter structure reduces LLM parsing ambiguity and enables consistent
 ```
 AuraAI/
 ├── src/
-│   ├── pages/                    # 28 application screens
+│   ├── pages/                    # 29 application screens
 │   │   ├── Landing.tsx           # Premium hero with parallax + telemetry ticker
 │   │   ├── ExecutiveDashboard.tsx # 4 score rings, metrics, Copilot widget
 │   │   ├── BeautyProfile.tsx     # 3-step onboarding profile wizard
@@ -211,7 +212,8 @@ AuraAI/
 │   │   ├── Leaderboard.tsx       # Global rankings
 │   │   ├── ForecastDashboard.tsx # Environmental forecast
 │   │   ├── AIWorkflowVisualizer.tsx # Live pipeline viz
-│   │   └── DemoConsole.tsx       # Hackathon presenter mode
+│   │   ├── DemoConsole.tsx       # Hackathon presenter mode
+│   │   └── DermatologistConsult.tsx # Specialist marketplace & video call simulator
 │   ├── components/
 │   │   ├── layout/
 │   │   │   └── AppShell.tsx      # Sidebar + topbar layout
@@ -235,7 +237,7 @@ AuraAI/
 │   │   ├── mockProgress.ts       # Historical progress seeder
 │   │   └── routines.ts           # Routine templates
 │   ├── types.ts                  # All TypeScript interfaces
-│   ├── App.tsx                   # Route registry (28 routes)
+│   ├── App.tsx                   # Route registry (29 routes)
 │   ├── main.tsx                  # App entry point
 │   └── index.css                 # 2000+ line CSS design system
 ├── screenshots/
@@ -378,7 +380,7 @@ vercel
 
 | Version | Highlights |
 |---------|-----------|
-| **v4.1** *(current)* | Integrated voice-activated AI assistant with Speech-to-Text dictation & Text-to-Speech response, unified hover button animations, and structured navigation layout. |
+| **v4.1** *(current)* | Integrated voice-activated AI assistant with Speech-to-Text dictation & Text-to-Speech response, unified hover button animations, secure dermatologist & specialist consultation hub, and structured navigation layout. |
 | **v4.0** | Full TypeScript migration, 28 pages, 90-day tracking, biological age, AI digital twin, premium UI, 0 build errors |
 | **v3.0** | Added Skin Health Lab, Hair Intelligence Lab, Transformation Journey, Executive Dashboard |
 | **v2.0** | Added Outcome Simulator, Progress Dashboard, Achievements, Aura Card, Global Network |
