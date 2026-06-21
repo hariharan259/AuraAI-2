@@ -5,9 +5,8 @@ import {
   runIngredientScientist,
   runBeautyCoach,
   runOutcomePredictor,
-  runFullAnalysis,
-  SYSTEM_PROMPTS
-} from './aiEngine.js'
+  runFullAnalysis
+} from './aiEngine'
 
 describe('AuraAI Agent Engine Tests', () => {
   const mockProfile = {
@@ -69,10 +68,10 @@ describe('AuraAI Agent Engine Tests', () => {
       expect(result.customFormula.compounds.length).toBeLessThanOrEqual(3)
 
       // Retinol and Vitamin C combination should generate a warning
-      const hasRetinol = result.recommendations.some(r => r.id === 'retinol')
-      const hasVitC = result.recommendations.some(r => r.id === 'vitaminC')
+      const hasRetinol = result.recommendations.some(r => r.benefits.includes('Retinol') || r.benefits.includes('Retinol (Vitamin A)'))
+      const hasVitC = result.recommendations.some(r => r.benefits.includes('Vitamin C') || r.benefits.includes('Vitamin C (L-Ascorbic Acid)'))
       if (hasRetinol && hasVitC) {
-        expect(result.interactions.some(i => i.includes('Retinol + Vitamin C'))).toBe(true)
+        expect(result.interactions.some(i => i.includes('Retinol + Vitamin C') || i.includes('Retinol (PM) and Vitamin C (AM)'))).toBe(true)
       }
     })
 
@@ -82,10 +81,8 @@ describe('AuraAI Agent Engine Tests', () => {
       const sensitiveProfile = { ...mockProfile, skinType: 'sensitive' }
 
       const result = runIngredientScientist(mockSkin, mockHair, sensitiveProfile)
-      const hasRetinol = result.recommendations.some(r => r.id === 'retinol')
-      if (hasRetinol) {
-        expect(result.risks.some(r => r.includes('Retinol may cause initial sensitivity'))).toBe(true)
-      }
+      // Check for sensitive skin risk warning
+      expect(result.risks.some(r => r.includes('Retinol may cause initial sensitivity'))).toBe(true)
     })
   })
 
@@ -115,7 +112,7 @@ describe('AuraAI Agent Engine Tests', () => {
       const result = runOutcomePredictor(mockSkin, mockHair, mockProfile, goodParams)
       
       expect(result.day90.overallScore).toBeGreaterThan(result.current.overallScore)
-      expect(result.chartData.length).toBe(13) // 0 to 90 days step 7 = 13 items (0, 7, 14, ..., 84)
+      expect(result.chartData.length).toBe(13) // 0 to 90 days step 7 = 13 items
     })
   })
 
@@ -128,24 +125,24 @@ describe('AuraAI Agent Engine Tests', () => {
       expect(dispatch).toHaveBeenCalledWith({ type: 'SET_ANALYSIS_STATUS', payload: 'running' })
       expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'dermatologist', status: 'running' })
       expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'dermatologist', status: 'complete' })
-      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'trichologist', status: 'running' })
-      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'trichologist', status: 'complete' })
-      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'ingredientScientist', status: 'running' })
-      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'ingredientScientist', status: 'complete' })
-      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'beautyCoach', status: 'running' })
-      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'beautyCoach', status: 'complete' })
-      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'outcomePredictor', status: 'running' })
-      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'outcomePredictor', status: 'complete' })
+      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'skinTwinAgent', status: 'running' })
+      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'skinTwinAgent', status: 'complete' })
+      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'routineAgent', status: 'running' })
+      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'routineAgent', status: 'complete' })
+      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'coachAgent', status: 'running' })
+      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'coachAgent', status: 'complete' })
+      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'predictorAgent', status: 'running' })
+      expect(dispatch).toHaveBeenCalledWith({ type: 'SET_AGENT_STATUS', agent: 'predictorAgent', status: 'complete' })
       expect(dispatch).toHaveBeenCalledWith({ type: 'SET_ANALYSIS_RESULT', payload: result })
       expect(dispatch).toHaveBeenCalledWith({ type: 'SET_ANALYSIS_STATUS', payload: 'complete' })
       
       expect(result).toHaveProperty('beautyScore')
       expect(result).toHaveProperty('lifestyleScore')
-      expect(result).toHaveProperty('skin')
-      expect(result).toHaveProperty('hair')
-      expect(result).toHaveProperty('ingredients')
+      expect(result).toHaveProperty('skinHealth')
+      expect(result).toHaveProperty('skinTwin')
       expect(result).toHaveProperty('routine')
       expect(result).toHaveProperty('forecast')
+      expect(result).toHaveProperty('products')
     }, 15000)
   })
 })

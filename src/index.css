@@ -1,22 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ============================================================
    AuraAI — Global Design System
    Premium Beauty-Tech Platform
    ============================================================ */
 
 /* === Google Fonts Import === */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap');
+
 
 /* === CSS Variables === */
 :root {
   /* Core Palette */
-  --aura-bg: #050508;
-  --aura-bg-2: #0a0a14;
-  --aura-bg-3: #0f0f1a;
+  --aura-bg: #0F172A;
+  --aura-bg-2: #1E293B;
+  --aura-bg-3: #1B2537;
 
   /* Glass Surfaces */
-  --glass-bg: rgba(255, 255, 255, 0.04);
-  --glass-bg-hover: rgba(255, 255, 255, 0.07);
-  --glass-bg-strong: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(30, 41, 59, 0.65);
+  --glass-bg-hover: rgba(30, 41, 59, 0.85);
+  --glass-bg-strong: rgba(30, 41, 59, 0.95);
   --glass-border: rgba(255, 255, 255, 0.08);
   --glass-border-hover: rgba(255, 255, 255, 0.15);
 
@@ -56,20 +62,27 @@
   --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #8B5CF6 0%, #EC4899 100%);
-  --gradient-secondary: linear-gradient(135deg, #06B6D4 0%, #8B5CF6 100%);
+  --gradient-primary: linear-gradient(135deg, #6A11CB 0%, #2575FC 100%);
+  --gradient-secondary: linear-gradient(135deg, #FC466B 0%, #3F5EFB 100%);
   --gradient-gold: linear-gradient(135deg, #F59E0B 0%, #EC4899 100%);
   --gradient-green: linear-gradient(135deg, #10B981 0%, #06B6D4 100%);
-  --gradient-mesh: radial-gradient(ellipse at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-                   radial-gradient(ellipse at 80% 20%, rgba(236, 72, 153, 0.12) 0%, transparent 50%),
+  --gradient-mesh: radial-gradient(ellipse at 20% 50%, rgba(106, 17, 203, 0.15) 0%, transparent 50%),
+                   radial-gradient(ellipse at 80% 20%, rgba(252, 70, 107, 0.12) 0%, transparent 50%),
                    radial-gradient(ellipse at 60% 80%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+
+  /* Brand Gradients */
+  --brand-gradient-primary: linear-gradient(135deg, #6A11CB 0%, #2575FC 100%);
+  --brand-gradient-wellness: linear-gradient(135deg, #00C9A7 0%, #92FE9D 100%);
+  --brand-gradient-skin: linear-gradient(135deg, #FF9A9E 0%, #FAD0C4 100%);
+  --brand-gradient-hair: linear-gradient(135deg, #434343 0%, #000000 100%);
+  --brand-gradient-journey: linear-gradient(135deg, #FC466B 0%, #3F5EFB 100%);
 
   /* Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.5);
-  --shadow-glow-primary: 0 0 30px rgba(139, 92, 246, 0.2);
-  --shadow-glow-secondary: 0 0 30px rgba(236, 72, 153, 0.2);
+  --shadow-glow-primary: 0 0 30px rgba(106, 17, 203, 0.2);
+  --shadow-glow-secondary: 0 0 30px rgba(252, 70, 107, 0.2);
 
   /* Border Radius */
   --radius-sm: 8px;
@@ -481,7 +494,7 @@ input, select, textarea { font-family: var(--font-body); }
 .app-sidebar {
   width: var(--sidebar-width);
   min-height: 100vh;
-  background: rgba(5, 5, 8, 0.95);
+  background: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(20px);
   border-right: 1px solid var(--glass-border);
   position: fixed;
@@ -502,7 +515,7 @@ input, select, textarea { font-family: var(--font-body); }
 
 .app-topbar {
   height: var(--navbar-height);
-  background: rgba(5, 5, 8, 0.8);
+  background: rgba(15, 23, 42, 0.8);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
   position: sticky;
@@ -1673,4 +1686,391 @@ input, select, textarea { font-family: var(--font-body); }
 .progress-bar-glow {
   animation: progressGlow 2s ease-in-out infinite;
 }
+
+/* ============================================================
+   AuraAI v4.0 — Premium UI Enhancement Layer
+   ============================================================ */
+
+/* === Universal Button Animation System ===
+   Applies premium hover effects to ALL action buttons across every page
+   without requiring per-button class edits ===================================
+*/
+
+/* All primary teal/purple/cyan buttons get hover lift + scale */
+button.shadow-glow-primary,
+button[class*="bg-teal-6"],
+button[class*="bg-teal-5"],
+button[class*="bg-purple-6"],
+button[class*="bg-purple-5"],
+button[class*="bg-cyan-6"],
+button[class*="bg-cyan-5"],
+button[class*="bg-amber-6"],
+button[class*="bg-rose-6"] {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease, background-color 0.2s ease !important;
+}
+
+button.shadow-glow-primary:hover,
+button[class*="bg-teal-6"]:hover,
+button[class*="bg-teal-5"]:hover,
+button[class*="bg-purple-6"]:hover,
+button[class*="bg-purple-5"]:hover,
+button[class*="bg-cyan-6"]:hover,
+button[class*="bg-cyan-5"]:hover,
+button[class*="bg-amber-6"]:hover,
+button[class*="bg-rose-6"]:hover {
+  transform: translateY(-2px) scale(1.02);
+  filter: brightness(1.08);
+}
+
+button.shadow-glow-primary:active,
+button[class*="bg-teal-6"]:active,
+button[class*="bg-teal-5"]:active,
+button[class*="bg-purple-6"]:active,
+button[class*="bg-purple-5"]:active,
+button[class*="bg-cyan-6"]:active,
+button[class*="bg-cyan-5"]:active,
+button[class*="bg-amber-6"]:active,
+button[class*="bg-rose-6"]:active {
+  transform: translateY(0) scale(1);
+  filter: brightness(1);
+}
+
+/* Disabled buttons must NOT animate */
+button:disabled {
+  transform: none !important;
+  filter: none !important;
+  cursor: not-allowed !important;
+  opacity: 0.4 !important;
+}
+
+
+
+/* Sidebar enhanced hover states */
+.sidebar-nav-item:hover {
+  color: var(--text-primary) !important;
+  background: rgba(255,255,255,0.06) !important;
+  transform: translateX(2px);
+  transition: all 0.2s ease !important;
+}
+
+.sidebar-nav-item.active {
+  color: var(--aura-primary-light) !important;
+  background: linear-gradient(90deg, rgba(139,92,246,0.15), rgba(37,117,252,0.08)) !important;
+  border: 1px solid rgba(139,92,246,0.25) !important;
+  box-shadow: 0 0 12px rgba(139,92,246,0.1);
+}
+
+.sidebar-nav-item.active svg {
+  color: var(--aura-primary-light) !important;
+}
+
+/* === Premium Card Hover System === */
+
+/* Glassmorphic panel with gradient border on hover */
+.premium-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(139,92,246,0.05), rgba(6,182,212,0.03));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.premium-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,255,255,0.12);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(139,92,246,0.15);
+}
+
+.premium-card:hover::before {
+  opacity: 1;
+}
+
+/* === Shimmer Effect for Interactive Elements === */
+@keyframes premiumShimmer {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+.shimmer-hover {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+  transform: skewX(-15deg);
+  transition: none;
+}
+
+.shimmer-hover:hover::after {
+  animation: premiumShimmer 0.6s ease forwards;
+}
+
+/* === Score Ring Glow Colors === */
+.score-ring-purple { filter: drop-shadow(0 0 12px rgba(139,92,246,0.5)); }
+.score-ring-cyan { filter: drop-shadow(0 0 12px rgba(6,182,212,0.5)); }
+.score-ring-green { filter: drop-shadow(0 0 12px rgba(16,185,129,0.5)); }
+.score-ring-amber { filter: drop-shadow(0 0 12px rgba(245,158,11,0.5)); }
+.score-ring-rose { filter: drop-shadow(0 0 12px rgba(244,63,94,0.5)); }
+
+/* === Enhanced Topbar === */
+.app-topbar {
+  background: rgba(10, 15, 30, 0.85) !important;
+  backdrop-filter: blur(24px) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+}
+
+/* === Aura Panel Class (used by legacy pages) === */
+.aura-panel {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 16px;
+  backdrop-filter: blur(16px);
+}
+
+/* === Glow Shadow Classes (Tailwind JIT won't generate these) === */
+.shadow-glow-primary {
+  box-shadow: 0 0 20px rgba(106,17,203,0.25), 0 4px 16px rgba(0,0,0,0.3);
+}
+.shadow-glow-secondary {
+  box-shadow: 0 0 20px rgba(252,70,107,0.25), 0 4px 16px rgba(0,0,0,0.3);
+}
+.shadow-glow-cyan {
+  box-shadow: 0 0 20px rgba(6,182,212,0.25), 0 4px 16px rgba(0,0,0,0.3);
+}
+.shadow-glow-green {
+  box-shadow: 0 0 20px rgba(16,185,129,0.25), 0 4px 16px rgba(0,0,0,0.3);
+}
+
+/* === Glass-gradient Utility === */
+.glass-gradient {
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+}
+
+/* === Animate Slide Up === */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-slideUp { animation: slideUp 0.4s ease forwards; }
+
+/* === Stagger animation for grid items === */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+
+/* === Enhanced Sidebar Widget Card === */
+.sidebar-widget-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 12px;
+  margin: 0 8px;
+  transition: all 0.2s ease;
+}
+
+.sidebar-widget-card:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.12);
+}
+
+.widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.widget-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.device-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.device-status-dot.active {
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.dispenser-status-body { margin-top: 6px; }
+
+.dispenser-tank-section { margin-bottom: 4px; }
+
+.tank-progress-bar {
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.tank-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6A11CB, #2575FC);
+  border-radius: 99px;
+  transition: width 0.5s ease;
+  box-shadow: 0 0 8px rgba(106,17,203,0.5);
+}
+
+/* === Mobile Menu Button === */
+.mobile-menu-btn {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 200;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(15,23,42,0.9);
+  border: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(16px);
+  transition: all 0.2s ease;
+}
+.mobile-menu-btn:hover {
+  background: rgba(139,92,246,0.2);
+  border-color: rgba(139,92,246,0.4);
+  transform: scale(1.05);
+}
+
+@media (min-width: 1024px) {
+  .mobile-menu-btn { display: none; }
+}
+
+/* === Sidebar Overlay === */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 99;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+.sidebar-overlay.visible {
+  display: block;
+  opacity: 1;
+}
+
+@media (max-width: 1023px) {
+  .sidebar-overlay {
+    display: block;
+    pointer-events: none;
+  }
+  .sidebar-overlay.visible {
+    pointer-events: all;
+  }
+}
+
+/* === Enhanced Aura Score Styles === */
+.aura-text { color: var(--text-primary); }
+.aura-muted { color: var(--text-muted); }
+.aura-bg { background-color: var(--aura-bg); }
+.aura-panel { background: rgba(30,41,59,0.6); }
+.aura-border { border-color: rgba(255,255,255,0.08); }
+
+/* === Micro-interaction: Button click ripple === */
+@keyframes rippleEffect {
+  from { transform: scale(0); opacity: 0.4; }
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* === Premium gradient borders === */
+.gradient-border {
+  position: relative;
+  background: var(--aura-bg-2);
+  border-radius: 16px;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(139,92,246,0.5), rgba(6,182,212,0.3), rgba(236,72,153,0.4));
+  z-index: -1;
+}
+
+/* === Active tab underline === */
+.tab-active-line {
+  position: relative;
+}
+.tab-active-line::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6A11CB, #2575FC);
+  border-radius: 2px;
+}
+
+/* === Notification dot === */
+.notif-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #EF4444;
+  border: 2px solid var(--aura-bg);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* === Enhanced Focus States === */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(139,92,246,0.6);
+  outline-offset: 2px;
+}
+
+/* === Smooth hover transition for all interactive elements === */
+button, a, [role="button"] {
+  transition-property: color, background-color, border-color, transform, box-shadow, opacity;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* === Premium typography improvements === */
+.text-aura-text { color: var(--text-primary); }
+.text-aura-muted { color: var(--text-muted); }
+.font-display { font-family: var(--font-display) !important; }
+
+/* ============================================================
+   END — AuraAI v4.0 Premium UI Enhancement Layer
+   ============================================================ */
+
 
