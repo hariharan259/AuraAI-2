@@ -125,7 +125,7 @@ export default function AICarePlanner() {
         {(['daily', 'weekly', 'monthly'] as const).map(t => (
           <button
             key={t}
-            className={`flex-1 py-2 text-xs font-bold rounded-lg transition ${
+            className={`flex-1 py-2 text-xs font-bold rounded-lg transition no-lift ${
               activeTab === t ? 'bg-emerald-600 text-white shadow-glow-primary' : 'text-aura-muted hover:text-white'
             }`}
             onClick={() => setActiveTab(t)}

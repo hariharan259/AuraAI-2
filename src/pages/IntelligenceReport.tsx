@@ -545,7 +545,7 @@ export default function IntelligenceReport() {
           {(['morning', 'night', 'weekly', 'monthly'] as const).map(tab => (
             <button
               key={tab}
-              className={`flex-1 py-2 text-xs font-bold rounded-lg capitalize transition-all duration-300 hover:scale-[1.02] active:scale-95 ${
+              className={`flex-1 py-2 text-xs font-bold rounded-lg capitalize transition-all duration-300 no-lift ${
                 routineTab === tab
                   ? 'bg-purple-600 text-white shadow-glow-secondary'
                   : 'text-aura-muted hover:text-white hover:bg-white/5'

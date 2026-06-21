@@ -89,7 +89,7 @@ export default function ProductEngine() {
       {/* Tabs */}
       <div className="flex gap-2 p-1 bg-black/45 rounded-xl border border-aura-border max-w-sm mb-8">
         <button
-          className={`flex-1 py-2 text-xs font-bold rounded-lg transition ${
+          className={`flex-1 py-2 text-xs font-bold rounded-lg transition no-lift ${
             activeCategory === 'skin' ? 'bg-pink-600 text-white shadow-glow-secondary' : 'text-aura-muted hover:text-white'
           }`}
           onClick={() => setActiveCategory('skin')}
@@ -97,7 +97,7 @@ export default function ProductEngine() {
           Skin Products
         </button>
         <button
-          className={`flex-1 py-2 text-xs font-bold rounded-lg transition ${
+          className={`flex-1 py-2 text-xs font-bold rounded-lg transition no-lift ${
             activeCategory === 'hair' ? 'bg-pink-600 text-white shadow-glow-secondary' : 'text-aura-muted hover:text-white'
           }`}
           onClick={() => setActiveCategory('hair')}

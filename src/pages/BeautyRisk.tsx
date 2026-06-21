@@ -119,7 +119,7 @@ export default function BeautyRisk() {
       {/* Tabs */}
       <div className="flex gap-2 p-1 bg-black/45 rounded-xl border border-aura-border max-w-sm mb-8">
         <button
-          className={`flex-1 py-2 text-xs font-bold rounded-lg transition ${
+          className={`flex-1 py-2 text-xs font-bold rounded-lg transition no-lift ${
             activeTab === 'skin' ? 'bg-rose-600 text-white shadow-glow-secondary' : 'text-aura-muted hover:text-white'
           }`}
           onClick={() => setActiveTab('skin')}
@@ -127,7 +127,7 @@ export default function BeautyRisk() {
           Skin Threats
         </button>
         <button
-          className={`flex-1 py-2 text-xs font-bold rounded-lg transition ${
+          className={`flex-1 py-2 text-xs font-bold rounded-lg transition no-lift ${
             activeTab === 'hair' ? 'bg-rose-600 text-white shadow-glow-secondary' : 'text-aura-muted hover:text-white'
           }`}
           onClick={() => setActiveTab('hair')}

@@ -1693,46 +1693,39 @@ input, select, textarea { font-family: var(--font-body); }
 
 /* === Universal Button Animation System ===
    Applies premium hover effects to ALL action buttons across every page
-   without requiring per-button class edits ===================================
+   without requiring per-button class edits, excluding flat elements (tabs, sidebar)
 */
 
-/* All primary teal/purple/cyan buttons get hover lift + scale */
-button.shadow-glow-primary,
-button[class*="bg-teal-6"],
-button[class*="bg-teal-5"],
-button[class*="bg-purple-6"],
-button[class*="bg-purple-5"],
-button[class*="bg-cyan-6"],
-button[class*="bg-cyan-5"],
-button[class*="bg-amber-6"],
-button[class*="bg-rose-6"] {
-  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease, background-color 0.2s ease !important;
+/* All action/interactive buttons get unified, premium hover lift + scale */
+button:not(.no-lift):not(.sidebar-nav-item):not(.tab-btn):not([disabled]) {
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 0.25s ease,
+              filter 0.25s ease,
+              background-color 0.25s ease,
+              border-color 0.25s ease,
+              color 0.25s ease !important;
 }
 
-button.shadow-glow-primary:hover,
-button[class*="bg-teal-6"]:hover,
-button[class*="bg-teal-5"]:hover,
-button[class*="bg-purple-6"]:hover,
-button[class*="bg-purple-5"]:hover,
-button[class*="bg-cyan-6"]:hover,
-button[class*="bg-cyan-5"]:hover,
-button[class*="bg-amber-6"]:hover,
-button[class*="bg-rose-6"]:hover {
-  transform: translateY(-2px) scale(1.02);
-  filter: brightness(1.08);
+button:not(.no-lift):not(.sidebar-nav-item):not(.tab-btn):not([disabled]):hover {
+  transform: translateY(-2.5px) scale(1.025) !important;
+  filter: brightness(1.08) !important;
 }
 
-button.shadow-glow-primary:active,
-button[class*="bg-teal-6"]:active,
-button[class*="bg-teal-5"]:active,
-button[class*="bg-purple-6"]:active,
-button[class*="bg-purple-5"]:active,
-button[class*="bg-cyan-6"]:active,
-button[class*="bg-cyan-5"]:active,
-button[class*="bg-amber-6"]:active,
-button[class*="bg-rose-6"]:active {
-  transform: translateY(0) scale(1);
-  filter: brightness(1);
+button:not(.no-lift):not(.sidebar-nav-item):not(.tab-btn):not([disabled]):active {
+  transform: translateY(0) scale(1) !important;
+  filter: brightness(1) !important;
+}
+
+/* Explicit style for flat/no-lift buttons like tabs */
+button.no-lift:not([disabled]) {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease !important;
+}
+button.no-lift:not([disabled]):hover {
+  transform: none !important;
+  filter: brightness(1.05) !important;
+}
+button.no-lift:not([disabled]):active {
+  transform: none !important;
 }
 
 /* Disabled buttons must NOT animate */

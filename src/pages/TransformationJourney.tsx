@@ -336,7 +336,7 @@ export default function TransformationJourney() {
           return (
             <button
               key={tab.id}
-              className={`flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-300 hover:scale-[1.03] active:scale-95 ${
+              className={`flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all duration-300 no-lift ${
                 isActive 
                   ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-glow-primary' 
                   : 'text-slate-400 hover:text-white hover:bg-white/5'
