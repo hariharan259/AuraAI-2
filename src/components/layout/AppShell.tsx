@@ -7,7 +7,7 @@ import {
   CloudSun, Cpu, Wifi, Check, Loader2, BookOpen,
   Award, ArrowLeftRight, Trophy, Dna, Brain, ShieldAlert,
   ClipboardList, Milestone, Gauge, Microscope, Search, 
-  MessageSquare, ShoppingBag, Calendar
+  MessageSquare, ShoppingBag, Calendar, Play
 } from 'lucide-react'
 
 const NAV_ITEMS = [
@@ -33,7 +33,8 @@ const NAV_ITEMS = [
   { path: '/coach', icon: MessageSquare, label: 'AI Beauty Coach', section: 'AuraOS' },
   { path: '/products', icon: ShoppingBag, label: 'Product Engine', section: 'AuraOS' },
   { path: '/challenges', icon: Trophy, label: 'Beauty Challenges', section: 'AuraOS' },
-  { path: '/how-it-thinks', icon: Brain, label: 'How AuraAI Thinks', section: 'AuraOS' }
+  { path: '/how-it-thinks', icon: Brain, label: 'How AuraAI Thinks', section: 'AuraOS' },
+  { path: '/demo', icon: Play, label: 'Demo Console', section: 'AuraOS' }
 ]
 
 

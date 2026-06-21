@@ -52,9 +52,6 @@ export default function App() {
           <Route path="/upload" element={<PhotoUpload />} />
           <Route path="/analysis" element={<Analysis />} />
           
-          {/* Dedicated Hackathon presentation portal */}
-          <Route path="/demo" element={<DemoConsole />} />
-
           {/* App pages — with sidebar shell */}
           <Route element={<AppShell />}>
             <Route path="/report" element={<IntelligenceReport />} />
@@ -65,6 +62,9 @@ export default function App() {
             <Route path="/passport" element={<SkinPassport />} />
             <Route path="/comparison" element={<ScanComparison />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
+            
+            {/* Dedicated Hackathon presentation portal */}
+            <Route path="/demo" element={<DemoConsole />} />
             
             {/* New Premium Upgrade Routes */}
             <Route path="/beauty-twin" element={<BeautyTwin />} />
