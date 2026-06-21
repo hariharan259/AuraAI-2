@@ -22,7 +22,6 @@ const NAV_ITEMS = [
   { path: '/journal', icon: BookOpen, label: 'Skin Journal', section: 'Daily', badge: '🔥' },
   
   // Aura OS v4.0 Suite
-  { path: '/dashboard', icon: Gauge, label: 'Executive Dashboard', section: 'AuraOS' },
   { path: '/skin-lab', icon: Microscope, label: 'Skin Health Lab', section: 'AuraOS' },
   { path: '/hair-lab', icon: Activity, label: 'Hair Intelligence Lab', section: 'AuraOS' },
   { path: '/beauty-twin', icon: Sparkles, label: 'AI Beauty Twin', section: 'AuraOS' },
@@ -139,14 +138,15 @@ export default function AppShell() {
         <nav className="sidebar-nav">
           {/* Dashboard */}
           <div className="sidebar-section-label">Overview</div>
-          <button
-            className="sidebar-nav-item"
-            onClick={() => { navigate('/report'); setSidebarOpen(false) }}
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) => `sidebar-nav-item ${isActive ? 'active' : ''}`}
+            onClick={() => setSidebarOpen(false)}
             style={{ marginBottom: 2 }}
           >
             <LayoutDashboard size={16} />
-            Clinical Report
-          </button>
+            Executive Dashboard
+          </NavLink>
 
           {/* Analysis */}
           <div className="sidebar-section-label">Analysis</div>
