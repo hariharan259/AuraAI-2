@@ -8,7 +8,7 @@ import SkinTwinDashboard from '../components/ui/SkinTwinDashboard';
 import { 
   Play, Square, ChevronRight, ChevronLeft, Loader2, Sparkles, 
   Brain, Microscope, Award, FileText, CheckCircle2, Shield, 
-  TrendingUp, ShoppingBag, Eye, User
+  TrendingUp, ShoppingBag, Eye, User, Volume2, VolumeX
 } from 'lucide-react';
 
 const DEMO_STEPS = [
@@ -50,6 +50,13 @@ export default function DemoConsole() {
   const [logMessages, setLogMessages] = useState<string[]>([]);
   const [demoResult, setDemoResult] = useState<AnalysisResultPayload | null>(null);
 
+  // Live Demo Narrator State
+  const [isMuted, setIsMuted] = useState(() => {
+    const saved = localStorage.getItem('aura_demo_muted');
+    return saved ? JSON.parse(saved) : true; // Muted by default to comply with browser autoplay restrictions
+  });
+  const [isSpeaking, setIsSpeaking] = useState(false);
+
   const mockProfile = {
     name: 'Sarah Jenkins',
     age: 24,
@@ -75,6 +82,36 @@ export default function DemoConsole() {
     return () => clearTimeout(timer);
   }, [currentStep, isPlaying]); // eslint-disable-line
 
+  // Cleanup speech synthesis on unmount
+  useEffect(() => {
+    return () => {
+      window.speechSynthesis?.cancel();
+    };
+  }, []);
+
+  // Speak step details aloud
+  useEffect(() => {
+    if (currentStep > 0 && !isMuted && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+      const step = DEMO_STEPS[currentStep - 1];
+      if (step) {
+        const textToSpeak = `Checkpoint ${step.id}. ${step.title}. ${step.desc}`;
+        const utterance = new SpeechSynthesisUtterance(textToSpeak);
+        utterance.onstart = () => setIsSpeaking(true);
+        utterance.onend = () => setIsSpeaking(false);
+        utterance.onerror = () => setIsSpeaking(false);
+
+        const voices = window.speechSynthesis.getVoices();
+        const preferredVoice = voices.find(v => v.name.includes('Google US English') || v.name.includes('Samantha') || v.lang.startsWith('en'));
+        if (preferredVoice) {
+          utterance.voice = preferredVoice;
+        }
+
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+  }, [currentStep, isMuted]);
+
   const startDemo = async () => {
     dispatch({ type: 'RESET_SCAN' });
     setDemoResult(null);
@@ -89,6 +126,18 @@ export default function DemoConsole() {
   const stopDemo = () => {
     setIsPlaying(false);
     setCurrentStep(0);
+    window.speechSynthesis?.cancel();
+    setIsSpeaking(false);
+  };
+
+  const toggleMute = () => {
+    const nextMuted = !isMuted;
+    setIsMuted(nextMuted);
+    localStorage.setItem('aura_demo_muted', JSON.stringify(nextMuted));
+    if (nextMuted) {
+      window.speechSynthesis?.cancel();
+      setIsSpeaking(false);
+    }
   };
 
   const handleNextStep = async () => {
@@ -129,22 +178,36 @@ export default function DemoConsole() {
           <p className="text-sm text-aura-muted">One-click presentation mode to demonstrate all 10 dermatology intelligence checkpoints.</p>
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex gap-3 items-center">
+          {currentStep !== 0 && (
+            <button
+              onClick={toggleMute}
+              className={`p-2 py-2 rounded-xl transition-all duration-300 no-lift flex items-center gap-1 text-xs font-bold ${
+                !isMuted 
+                  ? 'bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 shadow-glow-primary' 
+                  : 'bg-black/45 text-aura-muted border border-white/5 hover:text-white'
+              }`}
+              title={isMuted ? "Enable Live Voice Narrator" : "Mute Live Voice Narrator"}
+            >
+              {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} className={isSpeaking ? "animate-pulse" : ""} />}
+              <span>Voice</span>
+            </button>
+          )}
           {currentStep === 0 ? (
-            <button className="px-5 py-2.5 bg-teal-600 hover:bg-teal-500 text-white font-bold rounded-xl flex items-center gap-2 transition shadow-glow-primary text-sm" onClick={startDemo}>
+            <button className="px-5 py-2.5 bg-teal-600 hover:bg-teal-500 text-white font-bold rounded-xl flex items-center gap-2 transition shadow-glow-primary text-sm no-lift" onClick={startDemo}>
               <Play size={16} /> Start Live Arena Show
             </button>
           ) : (
             <>
               <button 
-                className={`px-4 py-2 rounded-xl text-xs font-bold text-white transition flex items-center gap-1.5 ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold text-white transition flex items-center gap-1.5 no-lift ${
                   isPlaying ? 'bg-amber-600 hover:bg-amber-500' : 'bg-teal-600 hover:bg-teal-500'
                 }`}
                 onClick={() => setIsPlaying(!isPlaying)}
               >
                 {isPlaying ? <><Square size={12} /> Pause AutoPlay</> : <><Play size={12} /> Resume AutoPlay</>}
               </button>
-              <button className="px-4 py-2 bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 transition" onClick={stopDemo}>
+              <button className="px-4 py-2 bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 transition no-lift" onClick={stopDemo}>
                 <Square size={12} /> Exit Demo
               </button>
             </>
