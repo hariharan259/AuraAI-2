@@ -115,6 +115,8 @@ AuraAI runs **5 specialized AI agents** concurrently, each with structured XML s
 | **AI Beauty Coach** | Voice-activated conversational AI assistant with Speech-to-Text (dictation) and Text-to-Speech (audio output) |
 | **Demo Console** | Hackathon presenter mode with auto-play walkthrough |
 | **Specialist Consultation** | Connect diagnostics to certified practitioners with booking engine, chat simulator, and secure telehealth video visit simulator |
+| **Admin & Revenue Dashboard** | Clinic verification portal, monthly recurring revenue tracking, customer retention cohorts, subscription plans, and platform diagnostics |
+| **Global Voice Copilot** | Floating microphone drawer with animated soundwave visualizer, secure navigation voice commands, and speech synthesized responses |
 
 ---
 
@@ -211,9 +213,9 @@ AuraAI/
 │   │   ├── BeautyChallenges.tsx  # Gamified challenges
 │   │   ├── Leaderboard.tsx       # Global rankings
 │   │   ├── ForecastDashboard.tsx # Environmental forecast
-│   │   ├── AIWorkflowVisualizer.tsx # Live pipeline viz
 │   │   ├── DemoConsole.tsx       # Hackathon presenter mode
-│   │   └── DermatologistConsult.tsx # Specialist marketplace & video call simulator
+│   │   ├── DermatologistConsult.tsx # Specialist marketplace & video call simulator
+│   │   └── AdminDashboard.tsx    # Admin verification and investor revenue dashboard
 │   ├── components/
 │   │   ├── layout/
 │   │   │   └── AppShell.tsx      # Sidebar + topbar layout
@@ -221,7 +223,8 @@ AuraAI/
 │   │   │   ├── ScoreRing.tsx     # Animated SVG score ring
 │   │   │   ├── ProgressBar.tsx   # Gradient progress bar
 │   │   │   ├── SkinTwinDashboard.tsx # 3D digital twin viz
-│   │   │   └── SkincareCoachChat.tsx # Chat UI component
+│   │   │   ├── SkincareCoachChat.tsx # Chat UI component
+│   │   │   └── VoiceCopilot.tsx      # Floating microphone & voice navigation assistant
 │   │   └── charts/
 │   │       ├── ForecastLine.tsx  # 90-day trajectory chart
 │   │       ├── SkinRiskRadar.tsx # Spider/radar chart
