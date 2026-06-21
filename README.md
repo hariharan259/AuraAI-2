@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/AuraAI-v4.0-8B5CF6?style=for-the-badge&logo=sparkles&logoColor=white" />
+<img src="https://img.shields.io/badge/AuraAI-v4.1-8B5CF6?style=for-the-badge&logo=sparkles&logoColor=white" />
 <img src="https://img.shields.io/badge/TypeScript-Strict-3178C6?style=for-the-badge&logo=typescript&logoColor=white" />
 <img src="https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black" />
 <img src="https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
@@ -24,7 +24,7 @@ AuraAI is a **production-grade AI Beauty Intelligence Operating System** — not
 
 > *"AuraAI replaces generic skincare with data-driven, clinically structured intelligence — from a selfie and a 60-second profile."*
 
-**v4.0 is a complete enterprise-grade upgrade** featuring 28 pages, full TypeScript migration, 90-day transformation monitoring, biological age analysis, AI digital twin simulation, and a premium glassmorphism UI.
+**v4.1 is a complete enterprise-grade upgrade** featuring 28 pages, full TypeScript migration, 90-day transformation monitoring, biological age analysis, AI digital twin simulation, a voice assistant with speech input/output, and a premium glassmorphism UI.
 
 ---
 
@@ -112,7 +112,7 @@ AuraAI runs **5 specialized AI agents** concurrently, each with structured XML s
 | **Risk Intelligence** | UV, cortisol, dehydration threat vector monitoring |
 | **Skin Passport** | Portable diagnostic credential |
 | **Skin Journal** | Personal beauty diary with mood and photo logs |
-| **AI Beauty Coach** | Conversational AI assistant for personalized advice |
+| **AI Beauty Coach** | Voice-activated conversational AI assistant with Speech-to-Text (dictation) and Text-to-Speech (audio output) |
 | **Demo Console** | Hackathon presenter mode with auto-play walkthrough |
 
 ---
@@ -139,7 +139,7 @@ AuraAI runs **5 specialized AI agents** concurrently, each with structured XML s
 
 ## 🎨 Design System
 
-AuraAI v4.0 uses a premium dark-mode glassmorphism design system:
+AuraAI v4.1 uses a premium dark-mode glassmorphism design system:
 
 - **Color Palette**: `#0F172A` base, Purple-Blue gradients (`#6A11CB → #2575FC`), Teal-Cyan accents
 - **Typography**: Playfair Display (headings) + Inter (body) from Google Fonts
@@ -378,7 +378,8 @@ vercel
 
 | Version | Highlights |
 |---------|-----------|
-| **v4.0** *(current)* | Full TypeScript migration, 28 pages, 90-day tracking, biological age, AI digital twin, premium UI, universal button animations, 0 build errors |
+| **v4.1** *(current)* | Integrated voice-activated AI assistant with Speech-to-Text dictation & Text-to-Speech response, unified hover button animations, and structured navigation layout. |
+| **v4.0** | Full TypeScript migration, 28 pages, 90-day tracking, biological age, AI digital twin, premium UI, 0 build errors |
 | **v3.0** | Added Skin Health Lab, Hair Intelligence Lab, Transformation Journey, Executive Dashboard |
 | **v2.0** | Added Outcome Simulator, Progress Dashboard, Achievements, Aura Card, Global Network |
 | **v1.0** | Initial launch — 5-agent pipeline, Intelligence Report, Forecast Dashboard |
@@ -412,6 +413,6 @@ MIT License — see [LICENSE](LICENSE)
 
 **Built with ❤️ using React 18 + TypeScript + Vite + Recharts + Lucide**
 
-*AuraAI v4.0 — Beauty Intelligence Operating System*
+*AuraAI v4.1 — Beauty Intelligence Operating System*
 
 </div>
